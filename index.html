@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>لمنه</title>
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Cairo:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#1f1b33;--bg2:#3a2a4d;--ink:#fbeff3;--soft:#d9c3d3;--rose:#e58aa5;--rose2:#c9607f;--gold:#f3d9a4}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%}
+body{font-family:"Cairo",system-ui,sans-serif;color:var(--ink);background:radial-gradient(circle at 50% 0%,var(--bg2),var(--bg) 70%);display:flex;align-items:center;justify-content:center;padding:24px;overflow-x:hidden}
+.screen{display:none;width:100%;max-width:420px;text-align:center}
+.screen.on{display:block}
+h1{font-family:"Aref Ruqaa",serif;font-weight:700;font-size:2.4rem;color:var(--gold);margin-bottom:8px}
+p.sub{color:var(--soft);margin-bottom:22px;line-height:1.8}
+input{width:100%;font:600 1.5rem "Cairo",sans-serif;letter-spacing:.35em;text-align:center;padding:14px;border-radius:14px;border:2px solid #6b5784;background:#2b2442;color:var(--ink);direction:ltr}
+input:focus-visible,button:focus-visible,.gift:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+button{font:600 1.1rem "Cairo",sans-serif;margin-top:16px;padding:12px 34px;border:0;border-radius:999px;background:var(--rose);color:#2a1020;cursor:pointer}
+button:active{background:var(--rose2)}
+#err{min-height:1.6em;margin-top:10px;color:#ffb4c4}
+.shake{animation:sh .4s}
+@keyframes sh{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+.gift{position:relative;width:170px;height:170px;margin:30px auto 18px;cursor:pointer;background:none;border:0;padding:0;border-radius:12px}
+.gift .base{position:absolute;bottom:0;left:0;right:0;height:110px;background:var(--rose2);border-radius:8px}
+.gift .base::after{content:"";position:absolute;left:50%;top:0;bottom:0;width:26px;margin-left:-13px;background:var(--gold)}
+.gift .lid{position:absolute;top:30px;left:-8px;right:-8px;height:42px;background:var(--rose);border-radius:8px;transition:transform .6s ease;transform-origin:left bottom}
+.gift .lid::after{content:"";position:absolute;left:50%;top:0;bottom:0;width:26px;margin-left:-13px;background:var(--gold)}
+.gift.open .lid{transform:translateY(-46px) rotate(-14deg)}
+.card{background:#2b2442;border:1px solid #5a4773;border-radius:18px;padding:30px 24px;min-height:210px;display:flex;align-items:center;justify-content:center}
+.card p{font-size:1.3rem;line-height:2}
+.card p.in{animation:fd .7s}
+@keyframes fd{from{opacity:0}to{opacity:1}}
+.sig{font-family:"Aref Ruqaa",serif;font-size:2.2rem;color:var(--gold);margin-top:6px;direction:ltr}
+.dots{margin-top:14px;color:var(--soft);font-size:.9rem}
+.screen{position:relative;z-index:1}
+.bow{display:block;pointer-events:none}
+.bg{position:fixed;z-index:0;opacity:.9}
+.bg.a{top:4%;right:6%;width:72px;color:var(--rose);transform:rotate(14deg)}
+.bg.b{top:9%;left:5%;width:48px;color:#d94a5f;transform:rotate(-18deg)}
+.bg.c{bottom:7%;left:8%;width:78px;color:#d94a5f;transform:rotate(-10deg)}
+.bg.d{bottom:10%;right:7%;width:54px;color:var(--rose);transform:rotate(20deg)}
+.bg.e{top:46%;right:3%;width:34px;color:#f7dfe6;transform:rotate(8deg)}
+.bg.f{top:52%;left:2%;width:36px;color:#f7dfe6;transform:rotate(-12deg)}
+.lid .bow{position:absolute;top:-36px;left:50%;width:84px;margin-left:-42px;color:#d94a5f;z-index:2}
+.card{position:relative;margin-top:30px}
+.card .bow{position:absolute;top:-30px;left:50%;width:76px;margin-left:-38px;color:#d94a5f}
+@media (prefers-reduced-motion:reduce){.gift .lid{transition:none}.card p.in,.shake{animation:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="bow" viewBox="0 0 100 70"><path d="M50 32C30 6 4 8 6 30C8 52 32 48 50 36Z" fill="currentColor"/><path d="M50 32C70 6 96 8 94 30C92 52 68 48 50 36Z" fill="currentColor"/><path d="M46 36L30 66L42 62L50 68L52 40Z" fill="currentColor" opacity=".85"/><path d="M54 36L70 66L58 62L50 68L48 40Z" fill="currentColor" opacity=".85"/><rect x="41" y="25" width="18" height="18" rx="7" fill="currentColor"/><rect x="41" y="25" width="18" height="18" rx="7" fill="#000" opacity=".22"/></symbol></svg>
+<svg class="bow bg a" viewBox="0 0 100 70" aria-hidden="true"><use href="#bow"/></svg>
+<svg class="bow bg b" viewBox="0 0 100 70" aria-hidden="true"><use href="#bow"/></svg>
+<svg class="bow bg c" viewBox="0 0 100 70" aria-hidden="true"><use href="#bow"/></svg>
+<svg class="bow bg d" viewBox="0 0 100 70" aria-hidden="true"><use href="#bow"/></svg>
+<svg class="bow bg e" viewBox="0 0 100 70" aria-hidden="true"><use href="#bow"/></svg>
+<svg class="bow bg f" viewBox="0 0 100 70" aria-hidden="true"><use href="#bow"/></svg>
+
+<main class="screen on" id="lock">
+  <h1>لمنه</h1>
+  <p class="sub">في حاجة صغيرة مستنياكي.<br>اكتبي الباسورد عشان تفتحيها.</p>
+  <input id="pw" type="tel" inputmode="numeric" autocomplete="off" aria-label="الباسورد">
+  <div id="err" role="alert"></div>
+  <button id="go">فتح</button>
+</main>
+
+<main class="screen" id="box">
+  <h1>ليكي يا منه</h1>
+  <p class="sub">اضغطي على الهدية.</p>
+  <button class="gift" id="gift" aria-label="افتحي الهدية"><span class="base"></span><span class="lid"><svg class="bow" viewBox="0 0 100 70" aria-hidden="true"><use href="#bow"/></svg></span></button>
+</main>
+
+<main class="screen" id="msgs">
+  <div class="card"><svg class="bow" viewBox="0 0 100 70" aria-hidden="true"><use href="#bow"/></svg><p id="txt"></p></div>
+  <div class="dots" id="dots"></div>
+  <button id="next">التالي</button>
+</main>
+
+<script>
+var PASS = "2082026";
+var M = [
+  "يا منه، أنا عارف إني زعلتك.",
+  "ومش هقول أعذار، أنا غلطت وبعترف بده.",
+  "بس الحقيقة اللي أنا متأكد منها إني بحبك يا منه، وبحبك كتير.",
+  "إنتي من أحلى الحاجات اللي حصلتلي، وحياتي معاكي غير حياتي من غيرك.",
+  "ضحكتك بتفرق في يومي، وكلامك بيطمني حتى لو مقولتلكيش.",
+  "وكل ما بفكر فيكي بلاقيني مبتسم من غير ما أحس.",
+  "نفسي أشوفك مبسوطة على طول، وأكون أنا السبب في ده مش العكس.",
+  "متزعليش مني على اللي حصل، كان غصب عني.",
+  "بحبك يا منه، كتير أوي أوي.",
+  "بحبك يا أغلى وأجمل حاجة في حياتي."
+];
+var i = 0;
+function show(id){
+  document.querySelectorAll(".screen").forEach(function(s){s.classList.remove("on")});
+  document.getElementById(id).classList.add("on");
+}
+function check(){
+  var v = document.getElementById("pw").value.trim();
+  if(v === PASS){ show("box"); return; }
+  var el = document.getElementById("pw");
+  document.getElementById("err").textContent = "الباسورد مش صح، جرّبي تاني.";
+  el.classList.remove("shake"); void el.offsetWidth; el.classList.add("shake");
+}
+document.getElementById("go").onclick = check;
+document.getElementById("pw").addEventListener("keydown", function(e){ if(e.key === "Enter") check(); });
+
+document.getElementById("gift").onclick = function(){
+  this.classList.add("open");
+  setTimeout(function(){ show("msgs"); render(); }, 800);
+};
+function render(){
+  var t = document.getElementById("txt");
+  var last = i === M.length - 1;
+  if(last){
+    t.innerHTML = M[i] + '<div class="sig">HEMA</div>';
+  } else {
+    t.textContent = M[i];
+  }
+  t.classList.remove("in"); void t.offsetWidth; t.classList.add("in");
+  document.getElementById("dots").textContent = (i + 1) + " / " + M.length;
+  document.getElementById("next").style.display = last ? "none" : "inline-block";
+}
+document.getElementById("next").onclick = function(){ if(i < M.length - 1){ i++; render(); } };
+</script>
+</body>
+</html>
